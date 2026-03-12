@@ -1,10 +1,10 @@
-interface PalindromeStrategy {
-    boolean check(String word);
-}
+public class PalindromeCheckerApp1 {
 
-class ReverseStrategy implements PalindromeStrategy {
+    public static void main(String[] args) {
 
-    public boolean check(String word) {
+        String word = "level";
+
+        long start = System.nanoTime();
 
         String reversed = "";
 
@@ -12,22 +12,12 @@ class ReverseStrategy implements PalindromeStrategy {
             reversed += word.charAt(i);
         }
 
-        return word.equals(reversed);
-    }
-}
+        boolean result = word.equals(reversed);
 
-public class PalindromeCheckerApp1 {
+        long end = System.nanoTime();
 
-    public static void main(String[] args) {
-
-        String word = "level";
-
-        PalindromeStrategy strategy = new ReverseStrategy();
-
-        if (strategy.check(word)) {
-            System.out.println(word + " is a palindrome.");
-        } else {
-            System.out.println(word + " is not a palindrome.");
-        }
+        System.out.println("Input: " + word);
+        System.out.println("Is Palindrome: " + result);
+        System.out.println("Execution Time: " + (end - start) + " ns");
     }
 }
