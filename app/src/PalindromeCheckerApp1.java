@@ -1,24 +1,22 @@
 import java.util.*;
 
-public class PalindromeCheckerApp6 {
+public class PalindromeCheckerApp1 {
 
     public static void main(String[] args) {
 
-        String word = "civic";
+        String word = "refer";
 
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> deque = new ArrayDeque<>();
 
         for (int i = 0; i < word.length(); i++) {
-            queue.add(word.charAt(i));
-            stack.push(word.charAt(i));
+            deque.add(word.charAt(i));
         }
 
         boolean isPalindrome = true;
 
-        while (!queue.isEmpty()) {
+        while (deque.size() > 1) {
 
-            if (queue.remove() != stack.pop()) {
+            if (deque.removeFirst() != deque.removeLast()) {
                 isPalindrome = false;
                 break;
             }
