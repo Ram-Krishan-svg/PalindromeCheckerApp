@@ -1,24 +1,21 @@
-public class PalindromeCheckerApp9 {
+public class PalindromeCheckerApp1 {
 
     public static void main(String[] args) {
 
-        String word = "madam";
+        String word = "A man a plan a canal Panama";
 
-        if (check(word, 0, word.length() - 1)) {
+        String cleaned = word.replaceAll("\\s+", "").toLowerCase();
+
+        String reversed = "";
+
+        for (int i = cleaned.length() - 1; i >= 0; i--) {
+            reversed = reversed + cleaned.charAt(i);
+        }
+
+        if (cleaned.equals(reversed)) {
             System.out.println(word + " is a palindrome.");
         } else {
             System.out.println(word + " is not a palindrome.");
         }
-    }
-
-    static boolean check(String word, int start, int end) {
-
-        if (start >= end)
-            return true;
-
-        if (word.charAt(start) != word.charAt(end))
-            return false;
-
-        return check(word, start + 1, end - 1);
     }
 }
