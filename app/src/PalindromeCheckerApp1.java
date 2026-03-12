@@ -2,20 +2,28 @@ public class PalindromeCheckerApp1 {
 
     public static void main(String[] args) {
 
-        String word = "A man a plan a canal Panama";
+        String word = "level";
 
-        String cleaned = word.replaceAll("\\s+", "").toLowerCase();
+        PalindromeService service = new PalindromeService();
 
-        String reversed = "";
-
-        for (int i = cleaned.length() - 1; i >= 0; i--) {
-            reversed = reversed + cleaned.charAt(i);
-        }
-
-        if (cleaned.equals(reversed)) {
+        if (service.check(word)) {
             System.out.println(word + " is a palindrome.");
         } else {
             System.out.println(word + " is not a palindrome.");
         }
+    }
+}
+
+class PalindromeService {
+
+    boolean check(String word) {
+
+        String reversed = "";
+
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversed += word.charAt(i);
+        }
+
+        return word.equals(reversed);
     }
 }
